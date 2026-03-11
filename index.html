@@ -366,26 +366,32 @@
       border-radius:18px;
       padding:14px 16px;
     }
-
-    summary{
-      cursor:pointer;
-      font-weight:700;
-      list-style:none;
-      display:block;
-      padding:12px 14px;
-      border-radius:14px;
+    .pub-details{
+      margin-top:14px;
+      background:rgba(255,255,255,.72);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.78);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+      border-radius:18px;
+      padding:14px 16px;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
     }
-    summary::-webkit-details-marker{display:none}
-    summary:hover{
+    .pub-details:hover{
       transform:translateY(-2px);
       box-shadow:0 14px 28px rgba(15,23,42,.08);
       border-color:rgba(37,99,235,.22);
       background:rgba(255,255,255,.96);
     }
-
+    
+    .pub-details summary{
+      cursor:pointer;
+      font-weight:700;
+      list-style:none;
+      color:var(--text);
+    }
+    
+    .pub-details summary::-webkit-details-marker{
+      display:none;
+    }
+    
     .note{
       margin-top:12px;
       color:var(--soft);
@@ -557,8 +563,8 @@
             </a>
           </div>
 
-          <summary>All publications</summary>
-          <details>
+          <details class="pub-details">
+            <summary>All publications</summary>
             <div class="pub-note">
               <ol start="9" class="pub-note">
                 <li>
