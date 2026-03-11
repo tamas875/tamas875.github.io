@@ -1,0 +1,606 @@
+<!doctype html>
+<!-- This website was created with the assistance of AI (ChatGPT 5.4, OpenAI) and then reviewed/edited by Tamas Szili-Torok. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tamas Szili-Torok — Clinical Data Scientist</title>
+  <meta name="description" content="Medical doctor & clinical data scientist — Tamas Szili-Torok">
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --bg2:#eef3f9;
+      --surface:rgba(255,255,255,0.82);
+      --surface-strong:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --soft:#64748b;
+      --line:rgba(148,163,184,0.22);
+      --accent:#0f766e;
+      --accent-2:#2563eb;
+      --shadow:0 18px 50px rgba(15,23,42,0.08);
+      --radius-xl:28px;
+      --radius-lg:20px;
+      --radius-md:14px;
+      --max:1080px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(15,118,110,.10), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+
+    a{color:inherit}
+
+    .shell{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:32px 20px 64px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      filter:blur(8px);
+      z-index:0;
+    }
+    .hero::before{
+      width:240px;height:240px;
+      background:rgba(37,99,235,.08);
+      right:-60px;top:-60px;
+    }
+    .hero::after{
+      width:180px;height:180px;
+      background:rgba(15,118,110,.10);
+      left:-40px;bottom:-60px;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .photo-wrap{
+      position:relative;
+    }
+
+    .photo-wrap::after{
+      content:"";
+      position:absolute;
+      inset:auto 8px -10px 8px;
+      height:24px;
+      background:rgba(15,23,42,.12);
+      filter:blur(16px);
+      border-radius:999px;
+      z-index:-1;
+    }
+
+    .profile{
+      width:140px;
+      height:200px;
+      object-fit:cover;
+      display:block;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.9);
+      box-shadow:0 16px 30px rgba(15,23,42,.12);
+      background:#dbe4ee;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(15,118,110,.08);
+      color:var(--accent);
+      font-size:.84rem;
+      font-weight:700;
+      letter-spacing:.02em;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2rem, 3vw, 3.2rem);
+      line-height:1.02;
+      letter-spacing:-0.04em;
+    }
+
+    .subtitle{
+      margin:16px 0 0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1.06rem;
+      line-height:1.7;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      text-decoration:none;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      box-shadow:0 6px 20px rgba(15,23,42,.04);
+      font-size:.96rem;
+      min-height:44px;
+    }
+
+    .pill:hover{
+      transform:translateY(-1px);
+      border-color:rgba(37,99,235,.24);
+      box-shadow:0 12px 22px rgba(15,23,42,.08);
+    }
+
+    .pill svg{flex-shrink:0}
+
+    .stats{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px 18px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.08rem;
+      margin-bottom:4px;
+    }
+
+    .stat span{
+      color:var(--soft);
+      font-size:.94rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:start;
+    }
+
+    .stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .card{
+      background:var(--surface);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    h2{
+      margin:0;
+      font-size:1.05rem;
+      letter-spacing:-0.02em;
+    }
+
+    .section-kicker{
+      color:var(--soft);
+      font-size:.88rem;
+    }
+
+    .affiliation{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:16px 18px;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(37,99,235,.06), rgba(15,118,110,.06));
+      border:1px solid rgba(37,99,235,.10);
+    }
+
+    .affiliation .icon{
+      width:40px;height:40px;
+      border-radius:12px;
+      display:grid;place-items:center;
+      background:#fff;
+      border:1px solid var(--line);
+      flex-shrink:0;
+    }
+
+    .affiliation p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .timeline,
+    .awards,
+    .pub-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .pub-item,
+    .talk-item,
+    .award-item{
+      padding:16px 16px 16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+    }
+
+    .pub-item{
+      position:relative;
+      padding-left:22px;
+    }
+
+    .pub-item::before{
+      content:"";
+      position:absolute;
+      left:0;top:16px;bottom:16px;
+      width:4px;
+      border-radius:999px;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+    }
+
+    .pub-title,
+    .talk-title,
+    .award-title{
+      display:block;
+      font-weight:700;
+      line-height:1.55;
+    }
+
+    .pub-meta,
+    .talk-meta,
+    .award-meta{
+      margin-top:6px;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:.96rem;
+    }
+    .pub-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .pub-note{
+      margin-top:12px;
+      color:var(--text);
+      font-size:1rem;
+      line-height:1.75;
+    }
+    .pub-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(15,23,42,.08);
+      border-color:rgba(37,99,235,.22);
+      background:rgba(255,255,255,.96);
+    }
+    .impact{
+      display:inline-flex;
+      margin-top:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(15,118,110,.08);
+      color:var(--accent);
+      font-size:.82rem;
+      font-weight:700;
+    }
+
+    details{
+      margin-top:14px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px 16px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+
+    .note{
+      margin-top:12px;
+      color:var(--soft);
+      font-size:.92rem;
+      line-height:1.65;
+    }
+
+    .footnote{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.96rem;
+    }
+
+    @media (max-width:960px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:720px){
+      .shell{padding:18px 14px 42px}
+      .hero{padding:22px}
+      .hero-grid{grid-template-columns:1fr;align-items:start}
+      .profile{width:112px;height:112px}
+      .stats{grid-template-columns:1fr}
+      .meta{flex-direction:column;align-items:stretch}
+      .pill{justify-content:flex-start}
+      .card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="photo-wrap">
+          <img class="profile" src="profile.png" alt="Tamas Szili-Török">
+        </div>
+
+        <div>
+          <div class="eyebrow">Medicine · Clinical Data Science · Cardiometabolic disease</div>
+          <h1>Tamas Szili-Torok</h1>
+          <p class="subtitle">
+            Medical doctor with cross-disciplinary expertise in clinical data science. Experienced in applying and developing novel statistical and machine learning methods to analyze complex biomedical data. Initiator and driving force behind international clinical data science projects.
+          </p>
+
+          <div class="meta">
+            <a class="pill" href="https://orcid.org/0000-0001-8675-9234" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#fff" d="M176 128c0-26.5-21.5-48-48-48s-48 21.5-48 48 21.5 48 48 48 48-21.5 48-48zm-50.5 28.9c-18.6 0-33.8-15.1-33.8-33.8s15.1-33.8 33.8-33.8 33.8 15.1 33.8 33.8-15.2 33.8-33.8 33.8z"/></svg>
+              ORCID
+            </a>
+            <a class="pill" href="https://github.com/tamas875" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.9c-3.3.7-4-1.6-4-1.6-.5-1.1-1.3-1.4-1.3-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.8 1.8-1.3-.6-.1-1.2-.4-1.2-1.4 0-1 .4-1.8 1-2.4-.2-.2-.4-1.1.1-2.3 0 0 .8-.2 2.6 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.8-1.2 2.6-1 2.6-1 .5 1.2.3 2.1.1 2.3.6.6 1 1.4 1 2.4 0 1-.6 1.3-1.2 1.4.3.3.7.9.7 1.9v2.8c0 .3.2.6.8.5A12 12 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="pill" href="mailto:t.szili-torok@outlook.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 13L2 6.76V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6.76L12 13zM12 11L22 4H2l10 7z"/></svg>
+              t.szili-torok@outlook.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="stack">
+        <article class="card">
+          <div class="section-head">
+            <h2>Academic positions</h2>
+            <span class="section-kicker">Current and past roles</span>
+          </div>
+          
+          <div class="affiliation" style="margin-bottom:14px;">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 20H20M6 20V8L12 4L18 8V20M10 12H14M10 16H14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">Current affiliation</div>
+              <div style="color:#475569; line-height:1.7;">
+                Physician researcher · Postdoctoral Researcher<br>
+                Division of Nephrology, Department of Internal Medicine<br>
+                University Medical Center Groningen (UMCG)<br>
+                University of Groningen, Groningen, The Netherlands
+              </div>
+            </div>
+          </div>
+          
+          <div class="affiliation">
+            <div class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9L12 4L21 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 10V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M9 10V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M15 10V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M19 10V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M3 20H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">Past experience</div>
+              <div style="color:#475569; line-height:1.7;">
+                Physician researcher · PhD student (2021-2024)<br>
+                Division of Nephrology, Department of Internal Medicine<br>
+                University Medical Center Groningen<br>
+                University of Groningen, Groningen, The Netherlands
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <h2>Key publications</h2>
+            <span class="section-kicker">Selected work</span>
+          </div>
+          <div class="pub-list">
+            <a class="pub-item pub-link" href="https://doi.org/10.2337/dc19-1212" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">1. T Szili-Torok, SJL Bakker, UJF Tietge. Statin Use Is Prospectively Associated With New-Onset Diabetes After Transplantation in Renal Transplant Recipients.</span>
+              <div class="pub-meta"><em>Diabetes Care</em> 2020;43:1945–1947.</div>
+              <span class="impact">Impact factor: 19.112</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.2337/db22-0826" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">2. T Szili-Torok, MH de Borst, E Garcia, RT Gansevoort, RPF Dullaart, MA Connelly, SJL Bakker, UJF Tietge. Fasting Ketone Bodies and Incident Type 2 Diabetes in the General Population.</span>
+              <div class="pub-meta"><em>Diabetes</em> 2023;72:1187–1192.</div>
+              <span class="impact">Impact factor: 6.2</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.1038/s41581-023-00707-y" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">3. T Szili-Torok#, D Kremer#, SJL Bakker, UJF Tietge, MH de Borst. Blockchain in nephrology.</span>
+              <div class="pub-meta"><em>Nature Reviews Nephrology</em> 2023. Perspective article.</div>
+              <span class="impact">Impact factor: 28.7</span>
+            </a>
+
+             <a class="pub-item pub-link" href="https://doi.org/10.1186/s12933-022-01475-y" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">4. T Szili-Torok, S Sokooti, MCJ Osté, AW Gomes-Neto, RPF Dullaart, SJL Bakker, UJF Tietge. Remnant lipoprotein cholesterol is associated with incident new onset diabetes after transplantation in renal transplant recipients.</span>
+              <div class="pub-meta"><em>Cardiovascular Diabetology</em> 2022;21:4.</div>
+               <span class="impact">Impact factor: 9.3</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.1093/ckj/sfae289" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">5. T Szili-Torok, MH de Borst, A Soteriou, L Post, SJL Bakker, UJF Tietge. Apolipoprotein B-48 and late graft failure in kidney transplant recipients.</span>
+              <div class="pub-meta"><em>Clinical Kidney Journal</em> 2024;17:10.</div>
+               <span class="impact">Impact factor: 4.6</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.2337/db18-1267" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">6. T Szili-Torok, W Annema, JLC Anderson, SJL Bakker, UJF Tietge. HDL Cholesterol Efflux Predicts Incident New-Onset Diabetes After Transplantation in Renal Transplant Recipients Independent of HDL Cholesterol Levels.</span>
+              <div class="pub-meta"><em>Diabetes</em> 2019;68:1915–1923.</div>
+               <span class="impact">Impact factor: 6.2</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.1186/s12933-022-01530-8" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">7. T Szili-Torok, SJL Bakker, UJF Tietge. Normal fasting triglyceride levels and incident type 2 diabetes in the general population.</span>
+              <div class="pub-meta"><em>Cardiovascular Diabetology</em> 2022;21:111.</div>
+              <span class="impact">Impact factor: 9.3</span>
+            </a>
+
+            <a class="pub-item pub-link" href="https://doi.org/10.1161/JAHA.122.028372" target="_blank" rel="noopener noreferrer">
+              <span class="pub-title">8. T Szili-Torok, Y Xu, MH de Borst, SJL Bakker, UJF Tietge. Normal Fasting Triglyceride Levels and Incident Hypertension in Community-Dwelling Individuals Without Metabolic Syndrome.</span>
+              <div class="pub-meta"><em>Journal of the American Heart Association</em> 2023;12:e028372. Research letter.</div>
+               <span class="impact">Impact factor: 5.0</span>
+            </a>
+          </div>
+
+          <details>
+            <summary>All publications</summary>
+            <div class="pub-note">
+              9. NBN Shehab, SK Eskandari, <strong><u>T Szili-Torok</u></strong>, A Faiz, EA van der Ploeg, AS Brotons, GJ Teitsma, C Tji Gan, JK Burgess, T Cremers, JR Azzi, MH de Borst, K Bunte, P Horvatovich, SJL Bakker. Untargeted Plasma Proteomic Signatures and Late Graft Failure in Kidney Transplant Recipients. <em>Transplantation</em>. Published online January 30, 2026.<br><br>
+              10. Y Yang, S Cai, <strong>T Szili-Torok</strong>, W Piao, K Huang, C Yang, H Xue, J Nan, F Li, D Yu, C Yuan, MH de Borst. Development and evaluation of a nutrient-derived anti-inflammatory dietary index (NADI) among Chinese adults. <em>European Journal of Nutrition</em> 2026;65(1):28.<br><br>
+              11. Y Yang, S Cai, <strong>T Szili-Torok</strong>, S Zhang, W Piao, J Nan, F Li, L Zhao, D Yu. Associations between dietary approaches to stop hypertension diet and serum uric acid levels and the risk of hyperuricemia: the mediation role of systematic inflammation. <em>Journal of Hygiene Research</em> 2025;54:540–548.<br><br>
+              12. Y Yang, H Yuan, Z Tang, S Cai, <strong>T Szili-Torok</strong>, Y Yang, W Piao, S Zhang, J Nan, F Li, L Zhao, D Yu. Association between triglyceride-glucose index and the risk of diabetes among participants with normal fasting serum glucose. <em>Journal of Hygiene Research</em> 2025;54:557–565.<br><br>
+              13. Y Yang, S Cai, <strong>T Szili-Torok</strong>, Y Wang, J Nan, R Wang, L Zhao, D Yu. Associations between vegetable and fruit intake and sleep duration among Chinese adults aged over 80 years. <em>Chinese Journal of Public Health</em>. Accepted, pending publication.<br><br>
+              14. A Simeri, G Pezzi, R Arena, G Papalia, <strong>T Szili-Torok</strong>, R Greco, P Veltri, G Greco, V Pezzi, M Provenzano, G Zaza. Artificial intelligence in chronic kidney diseases: methodology and potential applications. <em>International Urology and Nephrology</em> 2024.<br><br>
+              15. <strong>T Szili-Torok</strong>, UJF Tietge, MJ Verbeek, SJL Bakker, MH de Borst. Machine learning: it takes more than select models to draw general conclusions. <em>Kidney International</em> 2023;104:1035–1036. Letter to the editor.<br><br>
+              16. S Sokooti, <strong>T Szili-Török</strong>, HJL Heerspink, RPF Dullaart, SJL Bakker. Indirect Insulin Resistance Indices and Their Cut-Off Values for the Prediction of Post-Transplantation Diabetes Mellitus in Kidney Transplant Recipients. <em>Journal of Clinical Medicine</em> 2023;12:7296.<br><br>
+              17. <strong>T Szili-Torok</strong>, UJF Tietge. Remnant Cholesterol Is Just Another Word for Triglycerides When Calculating LDL-C Using the Friedewald Formula. <em>Journal of the American College of Cardiology</em> 2021;77:1841. Letter to the editor.<br><br>
+              18. S Sokooti, WA Dam, <strong>T Szili-Torok</strong>, J Gloerich, AJ van Gool, A Post, MH de Borst, RT Gansevoort, HJL Heerspink, RPF Dullaart, SJL Bakker. Fasting Proinsulin Independently Predicts Incident Type 2 Diabetes in the General Population. <em>Journal of Personalized Medicine</em> 2022;12:1131.<br><br>
+              19. S Sokooti, <strong>T Szili-Torok</strong>, JL Flores-Guerrero, MCJ Osté, AW Gomes-Neto, JE Kootstra-Ros, HJL Heerspink, MA Connelly, SJL Bakker, RPF Dullaart. High-Density Lipoprotein Particles and Their Relationship to Posttransplantation Diabetes Mellitus in Renal Transplant Recipients. <em>Biomolecules</em> 2020;10:481.
+            </div>
+          </details>
+          <div class="note"># Shared first or last author. Underline: corresponding author.</div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <div class="section-head">
+            <h2>Presentations</h2>
+            <span class="section-kicker">Selected talks</span>
+          </div>
+          <div class="timeline">
+            <div class="talk-item">
+              <span class="talk-title">1. Invited speaker — Improving Cardiovascular Disease Outcomes by Clinical Data Science</span>
+              <div class="talk-meta">Tianjin Chest Hospital Academic Conference and International Symposium · September 2025</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">2. Free communication — Predicting absolute time to kidney failure in chronic kidney disease patients using machine learning</span>
+              <div class="talk-meta">European Renal Association congress · June 4–7, 2025 · Top 100 abstract from 2000+</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">3. Invited speaker — Improving Non-Communicable Disease Outcomes by Clinical Data Science</span>
+              <div class="talk-meta">Fudan University · 17 April 2025</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">4. Focussed oral presentation — Time to event prediction of new-onset diabetes after transplantation in kidney transplant recipients using machine learning models</span>
+              <div class="talk-meta">European Renal Association congress · May 23–26, 2024</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">5. Invited speaker — Clinical data science: improving long term outcomes after kidney transplantation</span>
+              <div class="talk-meta">Applied AI symposium, University of Groningen · 27 April 2024</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">6. Poster presentation — Time to graft loss prediction in kidney transplant recipients</span>
+              <div class="talk-meta">American Society of Nephrology, Kidney Week</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">7. Poster presentation — Apolipoprotein B-48 and late graft failure in kidney transplant recipients</span>
+              <div class="talk-meta">World Nephrology Congress · March 30, 2023 – April 2, 2023</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">8. Oral presentation — Fasting Ketone Bodies and Incident Type 2 Diabetes in the General Population</span>
+              <div class="talk-meta">Meeting of the European Association for the Study of Diabetes · 19–23 September 2022</div>
+            </div>
+            <div class="talk-item">
+              <span class="talk-title">9. Poster presentation — HDL Cholesterol Efflux Predicts Incident New-Onset Diabetes After Transplantation (NODAT) in Renal Transplant Recipients Independent of HDL Cholesterol Levels</span>
+              <div class="talk-meta">Scandinavian Society for Atherosclerosis Conference · April 11–14, 2018</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="section-head">
+            <h2>Awards</h2>
+          </div>
+          <div class="awards">
+            <div class="award-item">
+              <span class="award-title">1. ERA25 Congress Travel Grant — EUR 500</span>
+              <div class="award-meta">Competitive travel grant offered to presenters of the top 100 abstracts of the European Renal Association congress. In 2025, more than 2000 abstracts were submitted worldwide.</div>
+            </div>
+            <div class="award-item">
+              <span class="award-title">2. Kidney STARS 2023 — Travel Grant of USD 1000</span>
+              <div class="award-meta">Travel grant provided by the American Society of Nephrology to young research talents and nephrology residents attending ASN Kidney Week.</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
