@@ -335,6 +335,27 @@
       font-weight:700;
     }
 
+    .talk-badge{
+      display:inline-flex;
+      margin-top:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+    }
+    .talk-badge.invited{
+      background:rgba(37,99,235,.10);
+      color:#1d4ed8;
+    }
+    .talk-badge.oral{
+      background:rgba(15,118,110,.10);
+      color:#0f766e;
+    }
+    .talk-badge.poster{
+      background:rgba(148,163,184,.16);
+      color:#475569;
+    }
+
     details{
       margin-top:14px;
       background:rgba(255,255,255,.72);
@@ -435,15 +456,15 @@
               </svg>
             </div>
             <div>
-              <div style="font-weight:700; margin-bottom:4px;">Affiliation</div>
               <div style="line-height:1.7;">
                 <div style="font-weight:700; color:#0f172a; margin-bottom:4px;">
                   Division of Nephrology, Department of Internal Medicine<br>
                   University Medical Center Groningen, University of Groningen
                 </div>
                 <div style="color:#475569;">
-                  Physician-researcher, Postdoctoral Researcher (2024 to Present)<br>
-                  Physician-researcher, PhD Student (2021-2024, Awarded in 2024)
+                  <strong>Physician-researcher</strong><br>
+                  Postdoctoral Researcher (2024 to Present)<br>
+                  PhD Student (2021-2024, Awarded in 2024)
                 </div>
               </div>
             </div>
@@ -537,7 +558,7 @@
               19. S Sokooti, <strong>T Szili-Torok</strong>, JL Flores-Guerrero, MCJ Osté, AW Gomes-Neto, JE Kootstra-Ros, HJL Heerspink, MA Connelly, SJL Bakker, RPF Dullaart. High-Density Lipoprotein Particles and Their Relationship to Posttransplantation Diabetes Mellitus in Renal Transplant Recipients. <em>Biomolecules</em> 2020;10:481.
             </div>
           </details>
-          <div class="note"># Shared first or last author. Underline: corresponding author.</div>
+          <div class="note"># Shared first or last author<br><u>Underline</u>: corresponding author.</div>
         </article>
       </div>
 
@@ -549,40 +570,49 @@
           </div>
           <div class="timeline">
             <div class="talk-item">
-              <span class="talk-title">1. Invited speaker — Improving Cardiovascular Disease Outcomes by Clinical Data Science</span>
-              <div class="talk-meta">Tianjin Chest Hospital Academic Conference and International Symposium · September 2025</div>
+              <span class="talk-title">Improving Cardiovascular Disease Outcomes by Clinical Data Science</span>
+              <span class="talk-badge invited">Invited speaker</span>
+              <div class="talk-meta">Tianjin Chest Hospital Academic Conference and International Symposium<br>September 2025</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">2. Free communication — Predicting absolute time to kidney failure in chronic kidney disease patients using machine learning</span>
-              <div class="talk-meta">European Renal Association congress · June 4–7, 2025 · Top 100 abstract from 2000+</div>
+              <span class="talk-title">Predicting absolute time to kidney failure in chronic kidney disease patients using machine learning</span>
+              <span class="talk-badge oral">Free communication(Top 100 abstract from 2000+)</span>
+              <div class="talk-meta">European Renal Association congress<br>4–7 June 2025</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">3. Invited speaker — Improving Non-Communicable Disease Outcomes by Clinical Data Science</span>
-              <div class="talk-meta">Fudan University · 17 April 2025</div>
+              <span class="talk-title">Improving Non-Communicable Disease Outcomes by Clinical Data Science</span>
+              <span class="talk-badge invited">Invited speaker</span>
+              <div class="talk-meta">Fudan University<br>17 April 2025</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">4. Focussed oral presentation — Time to event prediction of new-onset diabetes after transplantation in kidney transplant recipients using machine learning models</span>
-              <div class="talk-meta">European Renal Association congress · May 23–26, 2024</div>
+              <span class="talk-title">Time to event prediction of new-onset diabetes after transplantation in kidney transplant recipients using machine learning models</span>
+              <span class="talk-badge poster">Focussed oral presentation</span>
+              <div class="talk-meta">European Renal Association congress<br>23–26 May 2024</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">5. Invited speaker — Clinical data science: improving long term outcomes after kidney transplantation</span>
-              <div class="talk-meta">Applied AI symposium, University of Groningen · 27 April 2024</div>
+              <span class="talk-title">Clinical data science: improving long term outcomes after kidney transplantation</span>
+              <span class="impact">Invited speaker</span>
+              <div class="talk-meta">Applied AI symposium, University of Groningen<br>27 April 2024</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">6. Poster presentation — Time to graft loss prediction in kidney transplant recipients</span>
-              <div class="talk-meta">American Society of Nephrology, Kidney Week</div>
+              <span class="talk-title">Time to graft loss prediction in kidney transplant recipients</span>
+              <span class="talk-badge poster">Poster presentation</span>
+              <div class="talk-meta">American Society of Nephrology, Kidney Week<br>November 1-5 2023</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">7. Poster presentation — Apolipoprotein B-48 and late graft failure in kidney transplant recipients</span>
-              <div class="talk-meta">World Nephrology Congress · March 30, 2023 – April 2, 2023</div>
+              <span class="talk-title">Apolipoprotein B-48 and late graft failure in kidney transplant recipients</span>
+              <span class="talk-badge poster">Poster presentation</span>
+              <div class="talk-meta">World Congress Nephrology<br>30 March – 2 April 2023</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">8. Oral presentation — Fasting Ketone Bodies and Incident Type 2 Diabetes in the General Population</span>
-              <div class="talk-meta">Meeting of the European Association for the Study of Diabetes · 19–23 September 2022</div>
+              <span class="talk-title">Fasting Ketone Bodies and Incident Type 2 Diabetes in the General Population</span>
+              <span class="talk-badge oral">Oral presentation</span>
+              <div class="talk-meta">Meeting of the European Association for the Study of Diabetes<br>19–23 September 2022</div>
             </div>
             <div class="talk-item">
-              <span class="talk-title">9. Poster presentation — HDL Cholesterol Efflux Predicts Incident New-Onset Diabetes After Transplantation (NODAT) in Renal Transplant Recipients Independent of HDL Cholesterol Levels</span>
-              <div class="talk-meta">Scandinavian Society for Atherosclerosis Conference · April 11–14, 2018</div>
+              <span class="talk-title">HDL Cholesterol Efflux Predicts Incident New-Onset Diabetes After Transplantation (NODAT) in Renal Transplant Recipients Independent of HDL Cholesterol Levels</span>
+              <span class="talk-badge poster">Poster presentation</span>
+              <div class="talk-meta">Scandinavian Society for Atherosclerosis Conference<br>April 11–14, 2018</div>
             </div>
           </div>
         </article>
