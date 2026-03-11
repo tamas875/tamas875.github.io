@@ -371,8 +371,21 @@
       cursor:pointer;
       font-weight:700;
       list-style:none;
+      display:block;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.78);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
     }
     summary::-webkit-details-marker{display:none}
+    summary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(15,23,42,.08);
+      border-color:rgba(37,99,235,.22);
+      background:rgba(255,255,255,.96);
+      color:var(--accent);
+    }
 
     .note{
       margin-top:12px;
